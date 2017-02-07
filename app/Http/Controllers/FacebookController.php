@@ -92,9 +92,10 @@ class MainController extends Controller
 
     public function group($id)
     {
-        //$fields_string  = implode(',', Facebook::$page_fields_array);
+        $fields_string  = implode(',', Facebook::$group_fields_array);
         try {
-            $response = $this->fbs->get( $id, Session::get('fb_user_access_token'));
+            $response = $this->fbs->get( $id . '?fields=' . $fields_string, Session::get('fb_user_access_token'));
+            //$response = $this->fbs->get( $id . '/members' , Session::get('fb_user_access_token'));
         } catch (FacebookSDKException $e) {
             dd($e->getMessage());
         }

@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'MainController@index');
-Route::get('/user', 'MainController@user');
-Route::get('/page/{id}', 'MainController@page')->name('page');
-Route::get('/group/{id}', 'MainController@group')->name('group');
-Route::get('/facebook/callback', 'MainController@callback');
+Route::get('/', 'FacebookController@index');
+Route::get('/user', 'FacebookController@user');
+Route::get('/page/{id}', 'FacebookController@page')->name('page');
+Route::get('/group/{id}', 'FacebookController@group')->name('group');
+Route::get('/facebook/callback', 'FacebookController@callback');

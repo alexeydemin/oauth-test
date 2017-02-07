@@ -115,4 +115,15 @@ class Facebook extends Model
         'emails',
         'likes',
         'website'];
+    public static $group_fields_array = [
+        'id',
+        'description',
+        'email',
+        'icon',
+        'member_request_count',
+        'name',
+        'owner',
+        'parent',
+        'privacy',
+        'updated_time'];
 }

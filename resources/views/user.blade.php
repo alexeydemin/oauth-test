@@ -55,9 +55,9 @@
                 <tr><td>Cover photo</td><td><img src="{{ $data['cover']['source'] or '' }}"></td></tr>
                 <tr><td>Few random groups since FB doesn't allow get all user groups</td>
                     <td>
-                        <li><a href="{{ route('group', ['id' => 1527591587454113 ]) }}">{{ 'Group1' }}</a></li>
-                        <li><a href="{{ route('group', ['id' => 1527591587454113 ]) }}">{{ 'Group2' }}</a></li>
-                        <li><a href="{{ route('group', ['id' => 1527591587454113 ]) }}">{{ 'Group3' }}</a></li>
+                        <li><a href="{{ route('group', ['id' => 714685238558448 ]) }}">{{ 'Group1' }}</a></li>
+                        <li><a href="{{ route('group', ['id' => 686981921352307 ]) }}">{{ 'Group2' }}</a></li>
+                        <li><a href="{{ route('group', ['id' => 206802742684099 ]) }}">{{ 'Group3' }}</a></li>
                     </td></tr>
             </tbody>
         </table>

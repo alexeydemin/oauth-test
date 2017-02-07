@@ -9,13 +9,12 @@
     <div class="bs-component">
         <table class="table table-striped table-hover ">
             <tbody>
-                <tr><td>About</td><td>{{ $data['about'] or '' }} </td></tr>
-                <tr><td>Country</td><td>{{ $data['location']['country'] or ''}} </td></tr>
-                <tr><td>City</td><td>{{ $data['location']['city'] or ''}} </td></tr>
-                <tr><td>Street</td><td>{{ $data['location']['street'] or ''}} </td></tr>
-                <tr><td>GPS</td><td>{{ $data['location']['latitude'] or '' . ', ' . $data['location']['longitude'] or '' }} </td></tr>
-                <tr><td>Zip</td><td>{{ $data['location']['zip'] or ''}} </td></tr>
-                <tr><td>Website</td><td>{{ $data['website'] or '' }} </td></tr>
+                <tr><td>Name</td><td>{{ $data['name'] or ''}} </td></tr>
+                <tr><td>Description</td><td>{{ $data['description'] or '' }} </td></tr>
+                <tr><td>Email</td><td>{{ $data['email'] or ''}} </td></tr>
+                <tr><td>Icon</td><td><img src="{{ $data['icon'] or '' }}"></td></tr>
+                <tr><td>Owner</td><td>{{ $data['owner']['name'] or '' }} </td></tr>
+                <tr><td>Updated time</td><td>{{ $data['updated_time'] or ''}} </td></tr>
             </tbody>
         </table>
     </div>
