@@ -113,18 +113,23 @@ $fields_array =
         ,'website'
         //,'work'
 ];
-Route::get('/', function () {
-    return view('data');
+
+Route::get('/', 'MainController@index');
+
+
+
+Route::get('/user', function () {
+    return view('user');
 });
 
-Route::get('/facebook/login', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb) use ($permission_array)
+/*Route::get('/facebook/login', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb) use ($permission_array)
 {
     // Send an array of permissions to request
     $login_url = $fb->getLoginUrl($permission_array);
 
     // Obviously you'd do this in blade :)
     echo '<a href="' . $login_url . '">Login with Facebook</a>';
-});
+});*/
 
 // Endpoint that is redirected to after an authentication attempt
 Route::get('/facebook/callback', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb) use($fields_array)
@@ -186,7 +191,33 @@ Route::get('/facebook/callback', function(SammyK\LaravelFacebookSdk\LaravelFaceb
     $data = $response->getDecodedBody();
 
     // Convert the response to a `Facebook/GraphNodes/GraphUser` collection
-    $facebook_user = $response->getGraphUser();
+    //$facebook_user = $response->getGraphUser();
+
+    $pages_fields = 'about,attire,bio,location,parking,hours,emails,website';
+    try {
+        $page_response = $fb->get('1732887070272365?fields=' . $pages_fields, $token);
+        // 1732887070272365/feed?fields=id,message,from,to
+        // 1732887070272365/roles
+        // 1732887070272365/rating
+        // 1732887070272365/blocked
+
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
+        dd($e->getMessage());
+    }
+
+
+
+    try {
+        $my_groups = $fb->get('/100001825805704/groups', $token);
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
+        dd($e->getMessage());
+    }
+    try {
+        $group_info = $fb->get('/1527591587454113', $token);
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
+        dd($e->getMessage());
+    }
+
 
     // Create the user if it does not exist or update the existing entry.
     // This will only work if you've added the SyncableGraphNodeTrait to your User model.
@@ -200,6 +231,6 @@ Route::get('/facebook/callback', function(SammyK\LaravelFacebookSdk\LaravelFaceb
     //Auth::login($user);
 
 
-return  view('data', compact('data'));
+return  view('user', compact('data'));
 //redirect('/')->with($response);
 });

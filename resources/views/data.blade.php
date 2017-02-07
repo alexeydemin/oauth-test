@@ -65,11 +65,21 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div>
             <div class="content">
               <table border="1">
                   <tr><td>Name</td><td>{{ $data['name'] }} </td></tr>
                   <tr><td>Birthday</td><td>{{ $data['birthday'] }} </td></tr>
+                  <tr><td># of friends</td><td>{{ $data['context']['mutual_friends']['summary']['total_count'] }} </td></tr>
+                  <tr><td>Liked Pages</td>
+                      <td>
+                          @forelse ($data['context']['mutual_likes']['data'] as $item)
+                              <li><a href="https://fb.com/{{ $item['id'] }}">{{ $item['name'] }}</a></li>
+                          @empty
+                              <p>No items</p>
+                          @endforelse
+                      </td>
+                  </tr>
                   <tr><td>Devices</td>
                       <td>
                           @forelse ($data['devices'] as $item)
@@ -101,8 +111,10 @@
                       </td>
                   </tr>
                   <tr><td>Location</td><td>{{ $data['location']['name'] }} </td></tr>
+                  <tr><td>Cover photo</td><td><img src="{{ $data['cover']['source'] }}"></td></tr>
+
               </table>
-<img src="{{ $data['cover']['source'] }}">
+
 
             </div>
         </div>
