@@ -51,6 +51,7 @@ class Facebook extends Model
         'pages_messaging_subscriptions',
         'pages_messaging_phone_number'
     ];
+
     public static $user_fields_array = [
         'id'
         ,'about'
@@ -103,4 +104,15 @@ class Facebook extends Model
         ,'video_upload_limits'
         ,'viewer_can_send_gift'
         ,'website'];
+
+    public static $page_fields_array = [
+        'about',
+        'attire',
+        'bio',
+        'location',
+        'parking',
+        'hours',
+        'emails',
+        'likes',
+        'website'];
 }
