@@ -103,7 +103,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', 'base64:hWqFgbKH5nyq+V6t5Z46iEq4gP4ILxvbBaybuDa1+F0='),
 
     'cipher' => 'AES-256-CBC',
 
@@ -168,6 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
+        Artdarek\OAuth\OAuthServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Facebook' => SammyK\LaravelFacebookSdk\FacebookFacade::class,
+        'UOAuth' => Artdarek\OAuth\Facade\OAuth::class,
 
     ],
 

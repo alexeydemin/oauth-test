@@ -8,7 +8,7 @@ use App\Facebook;
 use Session;
 use Facebook\Exceptions\FacebookSDKException;
 
-class MainController extends Controller
+class FacebookController extends Controller
 {
     public $fbs;
 

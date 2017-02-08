@@ -10,7 +10,7 @@
                 <a href="{{ $fb_url }}">Login with Facebook</a>
             </div>
             <div class="col-xs-6">
-                Body content
+                <a href="/google">Login with Google</a>
             </div>
         </div>
     </div>
